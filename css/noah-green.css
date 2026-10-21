@@ -1,0 +1,545 @@
+/*
+  Noah Green additions on top of the zip template.
+  Additions only: nothing from css/style.css, css/flaticon.css or
+  css/animate.css is removed or overridden beyond what is declared here.
+*/
+
+/* Hero height without jQuery (zip used js-fullheight + jQuery) */
+.ng-hero {
+  min-height: 100vh;
+}
+.ng-hero .slider-text {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.ng-hero-2 {
+  height: 420px;
+}
+.ng-hero-2 .slider-text {
+  height: 420px;
+  display: flex;
+  align-items: center;
+}
+
+/* Branded recycling loop drawn in three strokes, inside the zip loader */
+.ng-recycle-loop {
+  display: block;
+  margin: 10px auto 0;
+  width: 54px;
+  height: 54px;
+}
+.ng-recycle-loop path {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: ng-draw-stroke 2.4s ease-in-out infinite;
+}
+.ng-recycle-loop path:nth-child(1) {
+  stroke: #2b98f0;
+  animation-delay: 0s;
+}
+.ng-recycle-loop path:nth-child(2) {
+  stroke: #f3e53d;
+  animation-delay: 0.3s;
+}
+.ng-recycle-loop path:nth-child(3) {
+  stroke: #28a745;
+  animation-delay: 0.6s;
+}
+@keyframes ng-draw-stroke {
+  0% {
+    stroke-dashoffset: 60;
+    opacity: 0.2;
+  }
+  45% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -60;
+    opacity: 0.2;
+  }
+}
+.ng-loader-brand {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #33313b;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* Floating action buttons: WhatsApp and voice tour */
+.ng-fab {
+  position: fixed;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ng-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+.ng-fab-whatsapp {
+  right: 24px;
+  background: #25d366;
+  animation: ng-fab-enter 0.5s ease-out both, ng-fab-pulse 2.6s ease-in-out 1.2s infinite;
+}
+.ng-fab-voice {
+  left: 24px;
+  background: #2b98f0;
+}
+.ng-fab-voice.speaking {
+  animation: ng-fab-ring 1.6s ease-out infinite;
+}
+.ng-fab[data-tooltip]:hover::after,
+.ng-fab[data-tooltip]:focus-visible::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #33313b;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+@keyframes ng-fab-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes ng-fab-pulse {
+  0%,
+  100% {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  50% {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+@keyframes ng-fab-ring {
+  0% {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), 0 0 0 0 rgba(43, 152, 240, 0.5);
+  }
+  100% {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), 0 0 0 18px rgba(43, 152, 240, 0);
+  }
+}
+
+/* Cookie consent banner and modal, Kenya Data Protection Act 2019 */
+.ng-cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 4px solid #2b98f0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  padding: 18px 0;
+}
+.ng-cookie-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.ng-cookie-modal {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: 28px;
+}
+.ng-switch-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+.ng-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+  flex: none;
+}
+.ng-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.ng-switch .ng-slider {
+  position: absolute;
+  inset: 0;
+  background: #ced4da;
+  border-radius: 24px;
+  transition: background 0.2s ease;
+}
+.ng-switch .ng-slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+.ng-switch input:checked + .ng-slider {
+  background: #2b98f0;
+}
+.ng-switch input:checked + .ng-slider::before {
+  transform: translateX(22px);
+}
+.ng-switch input:disabled + .ng-slider {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Material cards, colour coded sorting categories */
+.ng-material-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-top: 4px solid var(--ng-card-accent, #2b98f0);
+  border-radius: 4px;
+  padding: 26px 22px;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ng-material-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+.ng-material-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--ng-card-accent, #2b98f0);
+  margin-bottom: 14px;
+}
+.ng-points-chip {
+  display: inline-block;
+  background: #f3e53d;
+  color: #33313b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.ng-accept-list li,
+.ng-reject-list li {
+  font-size: 14px;
+  line-height: 1.7;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 4px;
+}
+.ng-accept-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #28a745;
+}
+.ng-reject-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #dc3545;
+}
+
+/* Wizard and forms */
+.ng-step-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: #e9ecef;
+  color: #6c757d;
+  flex: none;
+}
+.ng-step-dot.active {
+  background: #2b98f0;
+  color: #fff;
+}
+.ng-step-dot.done {
+  background: #28a745;
+  color: #fff;
+}
+.ng-kg-input {
+  width: 96px;
+}
+.ng-review-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #dee2e6;
+  font-size: 15px;
+}
+
+/* Badges for fictional eco partners */
+.ng-partner-badge {
+  display: inline-block;
+  border: 1px solid #2b98f0;
+  color: #0f7fd9;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 8px 8px 0;
+  background: #fff;
+}
+
+/* Zone chips */
+.ng-zone-chip {
+  display: inline-block;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #33313b;
+  margin: 0 8px 8px 0;
+}
+
+/* Stat cards */
+.ng-stat-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 24px;
+  text-align: center;
+  height: 100%;
+}
+.ng-stat-value {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2b98f0;
+  line-height: 1.2;
+}
+.ng-stat-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6c757d;
+}
+
+/* Chart shells */
+.ng-chart-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 22px;
+  height: 100%;
+}
+
+/* FAQ accordion */
+.ng-faq-item {
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+.ng-faq-q {
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  font-weight: 600;
+  color: #33313b;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.ng-faq-a {
+  padding: 0 18px 16px;
+  color: #808080;
+  font-size: 15px;
+}
+
+/* Printable guide note */
+.ng-print-note {
+  background: #f8f9fa;
+  border-left: 4px solid #f3e53d;
+  padding: 14px 18px;
+  font-size: 14px;
+}
+
+/* Legal prose */
+.ng-legal p {
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+.ng-legal h2 {
+  font-size: 20px;
+  color: #33313b;
+  margin: 26px 0 10px;
+  font-weight: 500;
+}
+
+/* Error pages */
+.ng-error-wrap {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Session avatar chip in navbar */
+.ng-account-chip {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+}
+@media (max-width: 991.98px) {
+  .ng-account-chip {
+    color: #33313b;
+  }
+}
+
+/* Yellow secondary action, from the zip accent #f3e53d */
+.ng-btn-yellow {
+  background: #f3e53d;
+  border: 1px solid #f3e53d;
+  color: #33313b;
+}
+.ng-btn-yellow:hover,
+.ng-btn-yellow:focus {
+  background: #e6d72c;
+  border-color: #e6d72c;
+  color: #33313b;
+}
+
+/* Testimony cards, mirrors the zip testimony section on dark band */
+.ng-testimony-card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 28px;
+  height: 100%;
+}
+.ng-testimony-card .ng-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+.ng-testimony-card p.quote {
+  font-size: 15px;
+  color: #808080;
+  font-style: italic;
+}
+.ng-testimony-card .ng-who {
+  font-weight: 700;
+  color: #33313b;
+  font-size: 14px;
+}
+.ng-testimony-card .ng-where {
+  font-size: 12px;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* How it works step cards */
+.ng-step-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 24px;
+  height: 100%;
+  position: relative;
+}
+.ng-step-number {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background: #f3e53d;
+  color: #33313b;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Tables */
+.ng-table {
+  width: 100%;
+  font-size: 14px;
+}
+.ng-table th {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #6c757d;
+  border-bottom: 2px solid #2b98f0;
+  padding: 10px 12px;
+  text-align: left;
+}
+.ng-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e9ecef;
+  color: #33313b;
+}

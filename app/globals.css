@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/*
+  Noah Green base layer.
+  Tailwind supplies utilities only. Every brand colour, font and layout
+  pattern still comes from the uploaded zip template (css/style.css), which
+  is imported after this file in app/layout.tsx so the zip stays in charge.
+*/
+
+@theme {
+  --color-ng-primary: #2b98f0;
+  --color-ng-primary-dark: #0f7fd9;
+  --color-ng-secondary: #f3e53d;
+  --color-ng-ink: #33313b;
+  --color-ng-body: #808080;
+  --color-ng-whatsapp: #25d366;
+}
+
+html {
+  scroll-behavior: smooth;
+}

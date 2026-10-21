@@ -14,7 +14,7 @@ import ImpactPreview from "@/components/home/ImpactPreview";
 import ContactForm from "@/components/home/ContactForm";
 import { MATERIALS, pointsPerKg } from "@/lib/materials";
 import { COVERAGE_ZONES } from "@/lib/zones";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, layeredBg } from "@/lib/images";
 import { WHATSAPP_URL } from "@/lib/constants";
 
 const STEPS = [
@@ -80,7 +80,7 @@ export default function HomePage() {
     <>
       <div
         className="hero-wrap js-fullheight ng-hero"
-        style={{ backgroundImage: `url('${IMAGES.heroSorting.remote}')` }}
+        style={{ backgroundImage: layeredBg(IMAGES.heroSorting.remote, IMAGES.heroSorting.local) }}
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>
@@ -271,7 +271,7 @@ export default function HomePage() {
 
       <section
         className="ftco-section ftco-intro"
-        style={{ backgroundImage: `url('${IMAGES.nairobiGreenCity.remote}')` }}
+        style={{ backgroundImage: layeredBg(IMAGES.nairobiGreenCity.remote, IMAGES.nairobiAerial.local) }}
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>

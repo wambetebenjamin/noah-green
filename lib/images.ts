@@ -41,6 +41,7 @@ export const IMAGES = {
     alt: "A young Kenyan man in a bucket hat and jacket among green foliage",
   },
   nairobiAerial: {
+    local: "/images/nairobi-aerial-cityscape.jpg",
     remote: pexels(28977077, 1920),
     alt: "Aerial view of Nairobi cityscape in Kenya",
   },
@@ -53,7 +54,17 @@ export const IMAGES = {
     alt: "Nairobi skyline with trees and the Kenyatta International Conference Centre",
   },
   recyclingBins: {
+    local: "/images/recycling-bins-market.jpg",
     remote: pexels(34406294, 1200),
     alt: "Four colour coded recycling bins for paper, plastic, metal and glass",
   },
 } as const;
+
+/**
+ * Layered hero background: the full resolution Pexels CDN copy paints on top
+ * and the locally saved copy underneath keeps every hero band complete even
+ * when the network image is slow or blocked.
+ */
+export function layeredBg(remote: string, local?: string): string {
+  return local ? `url('${remote}'), url('${local}')` : `url('${remote}')`;
+}

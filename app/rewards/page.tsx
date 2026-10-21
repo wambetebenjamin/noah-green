@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import FaqAccordion from "@/components/rewards/FaqAccordion";
 import { MATERIALS, pointsPerKg } from "@/lib/materials";
+import { IMAGES, layeredBg } from "@/lib/images";
 
 const PARTNERS = [
   "GreenLeaf Cafe",
@@ -44,8 +45,11 @@ export const metadata = {
 export default function RewardsPage() {
   return (
     <>
-      <div className="hero-wrap hero-wrap-2 ng-hero-2" style={{ background: "#0f7fd9" }}>
-        <div className="overlay" style={{ opacity: 0.15 }}></div>
+      <div
+        className="hero-wrap hero-wrap-2 ng-hero-2"
+        style={{ backgroundImage: layeredBg(IMAGES.recyclingBins.remote, IMAGES.recyclingBins.local) }}
+      >
+        <div className="overlay"></div>
         <div className="container">
           <div className="row no-gutters slider-text align-items-center justify-content-start">
             <div className="col-md-8 ftco-animate">

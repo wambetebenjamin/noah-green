@@ -22,8 +22,12 @@ Nairobi context of the platform.
 | portrait-elderly-woman-beads.jpg | https://www.pexels.com/photo/tribal-woman-wearing-headscarf-24374974/ | Christian Alemu (pexels.com/@christian-alemu-127251395) | Pexels License, free commercial use |
 | portrait-maasai-woman-narok.jpg | https://www.pexels.com/photo/photo-of-an-elderly-woman-smiling-6299632/ | Micah DeYoung (pexels.com/@micah-deyoung-14372201) | Pexels License, free commercial use |
 | portrait-urban-man-kenya.jpg | https://www.pexels.com/photo/a-man-with-an-earring-wearing-a-bucket-hat-4177652/ | Breston Kenya (pexels.com/@breston-kenya) | Pexels License, free commercial use |
+| nairobi-aerial-cityscape.jpg | https://www.pexels.com/photo/clouds-over-city-15496495/ | Mukula Igavinchi (pexels.com/@mukula-igavinchi-443985808) | Pexels License, free commercial use |
+| recycling-bins-market.jpg | https://www.pexels.com/photo/colorful-recycling-bins-in-indoor-market-34406294/ | Guilherme Pedrosa (pexels.com/@guilherme-pedrosa-2156844062) | Pexels License, free commercial use |
 
-Remote only imagery (full resolution from the Pexels CDN):
+Remote full resolution layers. Every band below also carries a locally saved
+fallback layer underneath (listed above where one exists), so hero sections
+stay complete even if the CDN is unreachable:
 
 | Placement | Pexels URL | Photographer | License |
 | --- | --- | --- | --- |

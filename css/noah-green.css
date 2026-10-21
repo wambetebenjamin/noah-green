@@ -548,3 +548,90 @@
 .hero-wrap {
   background-color: #0f7fd9;
 }
+
+/*
+  The zip hid .ftco-animate until its jQuery waypoints script revealed it.
+  That jQuery layer is not part of this build, so restore visibility here.
+  Entrance motion is provided by the Reveal component instead.
+*/
+.ftco-animate {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Standard sticky navbar once the page scrolls past the top bar */
+.ftco-navbar-light.ng-scrolled {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+.ftco-navbar-light.ng-scrolled .navbar-brand {
+  color: #000000;
+}
+.ftco-navbar-light.ng-scrolled .navbar-brand span {
+  color: #2b98f0;
+}
+.ftco-navbar-light.ng-scrolled .navbar-nav > .nav-item > .nav-link {
+  color: rgba(0, 0, 0, 0.8);
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+.ftco-navbar-light.ng-scrolled .navbar-nav > .nav-item > .nav-link:hover {
+  color: #2b98f0;
+}
+.ftco-navbar-light.ng-scrolled .navbar-toggler {
+  color: #33313b;
+}
+.ftco-navbar-light.ng-scrolled .ng-account-chip {
+  color: #33313b;
+}
+
+/* Hero crossfade slides with manual dots */
+.ng-hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out;
+  z-index: 0;
+}
+.ng-hero-slide.active {
+  opacity: 1;
+}
+.hero-wrap .overlay {
+  z-index: 1;
+}
+.ng-hero .container,
+.ng-hero-2 .container {
+  position: relative;
+  z-index: 2;
+}
+.ng-hero-dots {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 3;
+}
+.ng-hero-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.ng-hero-dots button.active {
+  background: #f3e53d;
+  transform: scale(1.25);
+}

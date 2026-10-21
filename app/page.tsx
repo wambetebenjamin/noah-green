@@ -15,6 +15,7 @@ import ContactForm from "@/components/home/ContactForm";
 import { MATERIALS, pointsPerKg } from "@/lib/materials";
 import { COVERAGE_ZONES } from "@/lib/zones";
 import { IMAGES, layeredBg } from "@/lib/images";
+import HeroSlider from "@/components/home/HeroSlider";
 import { WHATSAPP_URL } from "@/lib/constants";
 
 const STEPS = [
@@ -80,9 +81,9 @@ export default function HomePage() {
     <>
       <div
         className="hero-wrap js-fullheight ng-hero"
-        style={{ backgroundImage: layeredBg(IMAGES.heroSorting.remote, IMAGES.heroSorting.local) }}
         data-stellar-background-ratio="0.5"
       >
+        <HeroSlider />
         <div className="overlay"></div>
         <div className="container">
           <div className="row no-gutters slider-text js-fullheight align-items-center justify-content-start">

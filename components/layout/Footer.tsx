@@ -139,11 +139,7 @@ export default function Footer() {
           <div className="col-md-12 text-center">
             <p className="copyright">
               Copyright &copy; {new Date().getFullYear()} Noah Green, Nairobi.
-              All rights reserved. | Template made with{" "}
-              <i className="fa fa-heart" aria-hidden="true"></i> by{" "}
-              <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">
-                Colorlib.com
-              </a>
+              All rights reserved.
             </p>
           </div>
         </div>

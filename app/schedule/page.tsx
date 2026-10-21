@@ -1,5 +1,5 @@
 import ScheduleWizard from "@/components/schedule/ScheduleWizard";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, layeredBg } from "@/lib/images";
 
 export const metadata = {
   title: "Schedule a Pickup",
@@ -12,7 +12,7 @@ export default function SchedulePage() {
     <>
       <div
         className="hero-wrap hero-wrap-2 ng-hero-2"
-        style={{ backgroundImage: `url('${IMAGES.heroSorting.remote}')` }}
+        style={{ backgroundImage: layeredBg(IMAGES.heroSorting.remote, IMAGES.heroSorting.local) }}
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>

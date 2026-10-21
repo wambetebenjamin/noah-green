@@ -12,7 +12,7 @@ import GuideDownload from "@/components/sortguide/GuideDownload";
 import { MATERIALS, pointsPerKg } from "@/lib/materials";
 import type { MaterialCode } from "@/lib/materials";
 import { GUIDE_EXTRA } from "@/lib/sort-guide-copy";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, layeredBg } from "@/lib/images";
 
 const ICONS: Record<MaterialCode, typeof Leaf> = {
   paper: Newspaper,
@@ -35,7 +35,7 @@ export default function SortGuidePage() {
     <>
       <div
         className="hero-wrap hero-wrap-2 ng-hero-2"
-        style={{ backgroundImage: `url('${IMAGES.recyclingBins.remote}')` }}
+        style={{ backgroundImage: layeredBg(IMAGES.recyclingBins.remote, IMAGES.recyclingBins.local) }}
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>

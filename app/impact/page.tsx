@@ -1,5 +1,5 @@
 import ImpactBoard from "@/components/impact/ImpactBoard";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, layeredBg } from "@/lib/images";
 
 export const metadata = {
   title: "City Impact Board",
@@ -12,7 +12,7 @@ export default function ImpactPage() {
     <>
       <div
         className="hero-wrap hero-wrap-2 ng-hero-2"
-        style={{ backgroundImage: `url('${IMAGES.nairobiAerial.remote}')` }}
+        style={{ backgroundImage: layeredBg(IMAGES.nairobiAerial.remote, IMAGES.nairobiAerial.local) }}
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>

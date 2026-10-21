@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import CorporateForm from "@/components/corporate/CorporateForm";
 import { WHATSAPP_URL } from "@/lib/constants";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, layeredBg } from "@/lib/images";
 
 const TIERS = [
   {
@@ -56,7 +56,7 @@ export default function CorporatePage() {
     <>
       <div
         className="hero-wrap hero-wrap-2 ng-hero-2"
-        style={{ backgroundImage: `url('${IMAGES.nairobiSkyline.remote}')` }}
+        style={{ backgroundImage: layeredBg(IMAGES.nairobiSkyline.remote, IMAGES.nairobiAerial.local) }}
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>

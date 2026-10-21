@@ -543,3 +543,8 @@
   border-bottom: 1px solid #e9ecef;
   color: #33313b;
 }
+
+/* Never leave a hero band empty while remote imagery loads */
+.hero-wrap {
+  background-color: #0f7fd9;
+}

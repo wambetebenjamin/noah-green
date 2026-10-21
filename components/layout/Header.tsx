@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { SITE, WHATSAPP_URL } from "@/lib/constants";
 
@@ -19,6 +19,14 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const { data: session, status } = useSession();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -89,7 +97,9 @@ export default function Header() {
         </div>
       </div>
       <nav
-        className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+        className={`navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light${
+          scrolled ? " ng-scrolled" : ""
+        }`}
         id="ftco-navbar"
       >
         <div className="container">
